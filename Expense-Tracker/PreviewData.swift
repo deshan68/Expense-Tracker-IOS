@@ -10,7 +10,7 @@ import Foundation
 var transactionPreviewData = Transaction(
     id: 1,
     date: "01/24/2023",
-    institute: "Example Institute",
+    institution: "Example Institute",
     account: "Example Account",
     merchant: "Apple",
     amount: 100.0,

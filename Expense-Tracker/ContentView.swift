@@ -16,6 +16,9 @@ struct ContentView: View {
                     Text("Overview")
                         .font(.title2)
                         .bold()
+                    
+                    //
+                    RecentTransactionList()
                 }
                 .padding()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -32,9 +35,26 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .accentColor(.primary)
     }
 }
 
-#Preview {
-    ContentView()
+//#Preview {
+//    ContentView()
+//}
+
+struct ContentView_Previews: PreviewProvider {
+    
+    static let transactionListVM: TransactionListViewModel = {
+        let transactionListVM = TransactionListViewModel()
+        transactionListVM.transations = transactionListPreviewData
+        return transactionListVM
+    }()
+    
+    static var previews: some View {
+        
+        ContentView()
+            .environmentObject(transactionListVM)
+    }
+    
 }
